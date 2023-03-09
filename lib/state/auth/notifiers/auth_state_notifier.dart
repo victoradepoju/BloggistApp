@@ -17,9 +17,11 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   }) async {
     try {
       state = state.copyWithIsLoading(true);
-      return authenticator.login(email, password);
+      print(state.isLoading);
+      return await authenticator.login(email, password);
       // state = state.copyWithIsLoading(false);
     } catch (e) {
+      state = state.copyWithIsLoading(false);
       return ApiResponse();
     }
   }

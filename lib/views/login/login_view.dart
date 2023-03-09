@@ -68,12 +68,14 @@ class LoginView extends HookConsumerWidget {
                       //   emailTextController.text,
                       //   passwordTextController.text,
                       // );
+                      // print(isLoading);
                       final apiResponse =
                           await ref.read(authStateProvider.notifier).login(
                                 email: emailTextController.text,
                                 password: passwordTextController.text,
                               );
                       // print(apiResponse.error);
+                      // print(isLoading);
 
                       if (apiResponse.error == null) {
                         Navigator.of(context).pushAndRemoveUntil(
